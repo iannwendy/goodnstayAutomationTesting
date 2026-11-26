@@ -1,0 +1,8 @@
+# Core CLI scripts (jira_bug_reporter.py, api_test_helper.py, seed_stag_autobid.py, upload_jira_batch.py)
+# use Python 3 standard library only (zero external dependencies).
+#
+# Required for OpenXML-safe Excel Sheet Sync (sync_api_bugs_sheet.py & sync_bug_tracker_sheet.py):
+lxml>=6.0.0
+
+# Optional: Required only for automated PNG PII Gaussian-blur scrubbing (build_consolidated_report.example.py):
+Pillow>=10.0.0

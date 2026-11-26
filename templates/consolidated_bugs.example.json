@@ -1,0 +1,23 @@
+[
+  {
+    "seq_id": 113,
+    "bug_id": "BUG-113",
+    "source_local_id": "A1-01",
+    "payload_path": "./json_payloads/BUG-113.json",
+    "title": "[Area - Component] Concrete Observed Problem + Exact Viewport/Locale Context",
+    "area": "Global Home – Header / Navigation",
+    "type": "RESPONSIVE",
+    "severity": "S2 – Major",
+    "sheet_severity": "HIGH",
+    "priority_label": "P1",
+    "environment": "Staging (STAG) · Mobile 375×667 (iPhone SE) · Chromium (Playwright) · vi-VN (https://web.stag.goodnstay.com/vi-VN/home)",
+    "attachments": [
+      "./screenshots/bug113a_evidence_375x667.png"
+    ],
+    "vi_summary": "[Khu vực - Thành phần] Mô tả ngắn gọn lỗi thực tế + Ngữ cảnh màn hình/ngôn ngữ",
+    "vi_steps": "1. Mở https://web.stag.goodnstay.com/vi-VN/home ở kích thước Mobile 375×667.\n2. Nhấn vào nút X.\n3. Quan sát bố cục và đo tọa độ getBoundingClientRect().",
+    "vi_expected": "Thành phần X phải hiển thị đầy đủ trong viewport (left >= 0, right <= 375px), không tràn ngang hoặc che khuất CTA chính.",
+    "vi_actual": "Thành phần X bị tràn khỏi mép phải màn hình 42px (right=417px > innerWidth=375px), làm che khuất nút hành động chính.",
+    "vi_notes": "Nguyên nhân CSS: lớp .example cố định min-width: 420px ở breakpoint < 768px."
+  }
+]

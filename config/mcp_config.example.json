@@ -1,0 +1,32 @@
+{
+  "_comment": "Mẫu cấu hình MCP Servers cần thiết cho AI Agent QA (copy vào ~/.gemini/config/mcp_config.json hoặc cài bằng `agy mcp add` / Antigravity Plugins Manager). TUYỆT ĐỐI KHÔNG dán token thật vào file mẫu này.",
+  "mcpServers": {
+    "atlassian": {
+      "serverUrl": "https://mcp.atlassian.com/v2/mcp",
+      "headers": {
+        "Authorization": "Basic <BASE64_OF_YOUR_JIRA_EMAIL_COLON_API_TOKEN>"
+      },
+      "_purpose": "Đọc Confluence specs (166952975, 165937257, 171376745, 524593, 184944019) và kiểm tra chống trùng ticket Jira."
+    },
+    "google-workspace": {
+      "command": "uvx",
+      "args": ["workspace-mcp", "--tool-tier", "complete"],
+      "env": {
+        "GOOGLE_OAUTH_CLIENT_ID": "<YOUR_GOOGLE_OAUTH_CLIENT_ID>",
+        "GOOGLE_OAUTH_CLIENT_SECRET": "<YOUR_GOOGLE_OAUTH_CLIENT_SECRET>",
+        "USER_GOOGLE_EMAIL": "<YOUR_GOOGLE_EMAIL>"
+      },
+      "_purpose": "Tải file gns_Bug_Report_Tracking.xlsx mới nhất (get_drive_file_download_url) và tải ngược bản đã cập nhật lên Google Drive (update_drive_file). Giữ file output trong ~/.workspace-mcp/attachments/."
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"],
+      "_purpose": "Điều khiển trình duyệt tự động đa viewport (1440x900, 1280x800, 768x1024, 390x844, 375x667, 360x800), đo getBoundingClientRect(), chụp ảnh bằng chứng và scrub PII."
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"],
+      "_purpose": "Bắt F12 Console, F12 Network request/response, computed CSS styles và kiểm tra DOM live."
+    }
+  }
+}

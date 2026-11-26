@@ -1,0 +1,22 @@
+[
+  {
+    "bug_id": "BUG-API-01",
+    "summary": "[Area API - METHOD /api/v1/example] Tóm tắt lỗi tiếng Việt rõ nguyên nhân & ngữ cảnh",
+    "area": "Feature / Area / Epic (/api/v1/example)",
+    "type": "FUNCTIONAL",
+    "severity": "HIGH",
+    "steps": "1. Chuẩn bị fixture hợp lệ hoàn chỉnh fixtures/valid-example.json bằng dữ liệu QA giả lập.\n2. Đột biến đơn biến: thay đổi duy nhất trường X.\n3. Gửi request tới https://services.stag.goodnstay.com/api/v1/example.\n4. Kiểm tra HTTP status, response body và readback qua GET.",
+    "expected": "- Theo OpenAPI / API Standard (Confluence 524593), API phải từ chối dữ liệu sai bằng mã lỗi chuẩn hóa và không lưu bản ghi rác.",
+    "actual": "- API trả về HTTP 500 Internal Server Error / chấp nhận dữ liệu sai kèm mã requestId=...",
+    "environment": "STAG",
+    "device_locale": "Staging API & Chrome · 1440×900 · en-US",
+    "evidence_label": "bug_api01_evidence_1440x900.png (OP-XXXX)",
+    "evidence_url": "https://optibide-org.atlassian.net/rest/api/3/attachment/content/12345",
+    "qa_stage": "NEW",
+    "jira_url": "https://optibide-org.atlassian.net/browse/OP-XXXX",
+    "reported_by": "Nguyen Bao Minh",
+    "reported_on": "2026-11-26",
+    "retest_result": "NOT RUN",
+    "notes": "Test Case: STAG-API-001 | OWASP: A10:2025 (CWE-755) · API8:2023 | Khắc phục: Validate DTO đầu vào (https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html) | Jira: OP-XXXX."
+  }
+]

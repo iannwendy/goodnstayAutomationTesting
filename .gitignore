@@ -1,0 +1,21 @@
+# Secrets & local credentials (NEVER commit)
+.env
+.env.local
+.env.jira
+.env.stag
+.env.*
+!.env.jira.example
+!.env.stag.example
+config/mcp_config.json
+
+# Python & OS artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+._*
+
+# Temporary downloaded/generated Excel trackers & test outputs
+*.xlsx
+~$*.xlsx
+uploaded_jira_tickets.json
